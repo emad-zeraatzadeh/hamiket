@@ -1,9 +1,7 @@
-import TreeView from "./components/TreeView";
+import TreeView from "./components/tree/TreeView";
 
 export default function Home() {
   return (
-    <main>
       <TreeView/>
-    </main>
   );
 }

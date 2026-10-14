@@ -1,17 +1,23 @@
 import { Vazirmatn } from "next/font/google";
 import "./globals.css";
-import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
+import Providers from "./providers/providers";
 
 const vazirmatn = Vazirmatn({
+  subsets: ["arabic", "latin"],
   weight: ["300", "400", "500", "700"],
   display: "swap",
+  variable: "--font-vazirmatn",
 });
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="fa" className={`${vazirmatn.className} h-full antialiased`}>
-      <body className="h-screen flex justify-center items-center">
-        <AppRouterCacheProvider>{children}</AppRouterCacheProvider>
+    <html
+      lang="fa"
+      dir="rtl"
+      className={`${vazirmatn.variable} h-full antialiased`}
+    >
+      <body>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
